@@ -1,0 +1,53 @@
+{
+  "name": "dramaforge",
+  "version": "1.0.0",
+  "description": "AI 短剧工坊 — 一句话生成 AI 短剧的本地创作工作台",
+  "main": "./out/main/index.js",
+  "author": "DramaForge",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "smoke": "npm run build && electron . --smoke-test",
+    "smoke:ui": "npm run build && electron . --ui-smoke",
+    "icon": "node scripts/generate-icon.mjs",
+    "dist:win": "npm run build && electron-builder --win nsis",
+    "dist:mac": "npm run build && electron-builder --mac dmg zip",
+    "dist:dir": "npm run build && electron-builder --dir"
+  },
+  "dependencies": {
+    "ffmpeg-static": "^5.3.0",
+    "ffprobe-static": "^3.1.0",
+    "lucide-react": "^1.67.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5",
+    "zod": "^4.6.7",
+    "zustand": "^5.0.16"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.0.0",
+    "@tailwindcss/vite": "^4.3.4",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react-swc": "^4.3.3",
+    "electron": "^45.2.2",
+    "electron-builder": "^26.18.0",
+    "electron-vite": "^6.0.0",
+    "tailwindcss": "^4.3.4",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.5",
+    "vitest": "^5.1.0"
+  },
+  "allowScripts": {
+    "ffmpeg-static@5.3.0": true,
+    "@swc/core@1.16.21": true,
+    "electron-winstaller@5.4.0": true
+  }
+}
